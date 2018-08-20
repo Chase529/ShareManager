@@ -1,0 +1,2 @@
+# ShareManager
+Share Java Platfrom
