@@ -329,5 +329,10 @@ public class ConstantFactory implements IConstantFactory {
         return parentDeptIds;
     }
 
+    @Override
+    public String getPostStatusName(Integer isShow) {
+        return getDictsByName("发布显示状态", isShow);
+    }
+
 
 }

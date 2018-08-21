@@ -113,4 +113,9 @@ public interface IConstantFactory {
      */
     List<Integer> getParentDeptIds(Integer deptid);
 
+    /**
+     * 获取显示状态名称
+     */
+    String getPostStatusName(Integer isShow);
+
 }
