@@ -1,0 +1,37 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                            <#input id="postTitle" name="标题" underline="true"/>
+                            <#input id="postShort" name="简介" underline="true"/>
+                            <#input id="postStory" name="故事" underline="true"/>
+                            <#select id="isShow" name="状态" underline="true">
+                                <option value="1">可见</option>
+                                <option value="2">不可见</option>
+                            </#select>
+                </div>
+
+                <div class="col-sm-6">
+                            <#input id="clickCount" name="点击量" underline="true"/>
+                            <#input id="likeCount" name="喜欢数量" underline="true"/>
+                            <#input id="postUid" name="发布人id" underline="true"/>
+                            <#input id="createTime" name="发布时间" underline="true"/>
+                            <#input id="updateTime" name="修改时间" underline="true"/>
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="PostInfoDlg.addSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="PostInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/biz_one/post/post_info.js"></script>
+@}

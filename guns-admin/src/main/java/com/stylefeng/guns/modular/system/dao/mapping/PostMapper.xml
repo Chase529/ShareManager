@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stylefeng.guns.modular.system.dao.PostMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.stylefeng.guns.modular.system.model.Post">
+        <id column="post_id" property="postId" />
+        <result column="post_title" property="postTitle" />
+        <result column="post_short" property="postShort" />
+        <result column="post_story" property="postStory" />
+        <result column="is_show" property="isShow" />
+        <result column="click_count" property="clickCount" />
+        <result column="like_count" property="likeCount" />
+        <result column="post_uid" property="postUid" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        post_id, post_title, post_short, post_story, is_show, click_count, like_count, post_uid, create_time, update_time
+    </sql>
+    
+    <select id="selectPosts" re
+
+</mapper>

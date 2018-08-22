@@ -1,0 +1,35 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                            <#input id="postId" name="主键" value="${item.postId}" underline="true"/>
+                            <#input id="postTitle" name="post标题" value="${item.postTitle}" underline="true"/>
+                            <#input id="postShort" name="post简介" value="${item.postShort}" underline="true"/>
+                            <#input id="postStory" name="post的故事，可选添加" value="${item.postStory}" underline="true"/>
+                            <#input id="isShow" name="1可见 2不可见" value="${item.isShow}" />
+                </div>
+
+                <div class="col-sm-6">
+                            <#input id="clickCount" name="点击量" value="${item.clickCount}" underline="true"/>
+                            <#input id="likeCount" name="喜欢数量" value="${item.likeCount}" underline="true"/>
+                            <#input id="postUid" name="发布人id" value="${item.postUid}" underline="true"/>
+                            <#input id="createTime" name="发布时间" value="${item.createTime}" underline="true"/>
+                            <#input id="updateTime" name="修改时间" value="${item.updateTime}" />
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="PostInfoDlg.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="PostInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/biz_one/post/post_info.js"></script>
+@}
