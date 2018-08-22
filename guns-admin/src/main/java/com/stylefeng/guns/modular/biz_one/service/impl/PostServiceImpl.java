@@ -1,10 +1,13 @@
 package com.stylefeng.guns.modular.biz_one.service.impl;
 
+import com.stylefeng.guns.core.util.PageData;
 import com.stylefeng.guns.modular.system.model.Post;
 import com.stylefeng.guns.modular.system.dao.PostMapper;
 import com.stylefeng.guns.modular.biz_one.service.IPostService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -17,4 +20,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class PostServiceImpl extends ServiceImpl<PostMapper, Post> implements IPostService {
 
+
+    @Override
+    public List<PageData> selectPosts(String postTitle) {
+        return this.baseMapper.selectPosts(postTitle);
+    }
 }

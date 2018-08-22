@@ -3,9 +3,10 @@
     <div class="ibox-content">
         <div class="form-horizontal">
 
+            <input type="hidden" id="postId" value="${item.postId}">
+
             <div class="row">
                 <div class="col-sm-6 b-r">
-                            <#input id="postId" name="主键" value="${item.postId}" underline="true"/>
                             <#input id="postTitle" name="post标题" value="${item.postTitle}" underline="true"/>
                             <#input id="postShort" name="post简介" value="${item.postShort}" underline="true"/>
                             <#input id="postStory" name="post的故事，可选添加" value="${item.postStory}" underline="true"/>

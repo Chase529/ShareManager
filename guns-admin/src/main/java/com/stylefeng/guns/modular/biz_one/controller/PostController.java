@@ -1,6 +1,7 @@
 package com.stylefeng.guns.modular.biz_one.controller;
 
 import com.stylefeng.guns.core.base.controller.BaseController;
+import com.stylefeng.guns.core.util.PageData;
 import com.stylefeng.guns.core.util.UuidUtil;
 import com.stylefeng.guns.modular.system.warpper.biz_one.PostWarpper;
 import org.springframework.stereotype.Controller;
@@ -51,7 +52,7 @@ public class PostController extends BaseController {
      * 跳转到修改发布动态管理
      */
     @RequestMapping("/post_update/{postId}")
-    public String postUpdate(@PathVariable Integer postId, Model model) {
+    public String postUpdate(@PathVariable String postId, Model model) {
         Post post = postService.selectById(postId);
         model.addAttribute("item",post);
         LogObjectHolder.me().set(post);
@@ -64,8 +65,10 @@ public class PostController extends BaseController {
     @RequestMapping(value = "/list")
     @ResponseBody
     public Object list(String condition) {
-        List<Post> postList = postService.selectList(null);
-        return new PostWarpper(postList).warp();
+        List<PageData> postList = postService.selectPosts(null);
+        List<PageData> list = (List<PageData>) new PostWarpper(postList).warp();
+
+        return list;
     }
 
     /**
@@ -84,7 +87,7 @@ public class PostController extends BaseController {
      */
     @RequestMapping(value = "/delete")
     @ResponseBody
-    public Object delete(@RequestParam Integer postId) {
+    public Object delete(@RequestParam String postId) {
         postService.deleteById(postId);
         return SUCCESS_TIP;
     }

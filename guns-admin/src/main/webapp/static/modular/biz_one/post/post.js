@@ -14,7 +14,7 @@ var Post = {
 Post.initColumn = function () {
     return [
         {field: 'selectItem', radio: true},
-            {title: '主键', field: 'postId', visible: true, align: 'center', valign: 'middle'},
+            {title: 'id', field: 'postId', visible: false, align: 'center', valign: 'middle'},
             {title: '标题', field: 'postTitle', visible: true, align: 'center', valign: 'middle'},
             {title: '简介', field: 'postShort', visible: true, align: 'center', valign: 'middle'},
             {title: '故事', field: 'postStory', visible: true, align: 'center', valign: 'middle'},
@@ -61,13 +61,16 @@ Post.openAddPost = function () {
  */
 Post.openPostDetail = function () {
     if (this.check()) {
+        console.log(Post.seItem);
+        console.log(Post);
+        console.log(Post.seItem.postId);
         var index = layer.open({
             type: 2,
             title: '发布动态管理详情',
             area: ['800px', '420px'], //宽高
             fix: false, //不固定
             maxmin: true,
-            content: Feng.ctxPath + '/post/post_update/' + Post.seItem.id
+            content: Feng.ctxPath + '/post/post_update/' + Post.seItem.postId
         });
         this.layerIndex = index;
     }
@@ -84,7 +87,7 @@ Post.delete = function () {
         }, function (data) {
             Feng.error("删除失败!" + data.responseJSON.message + "!");
         });
-        ajax.set("postId",this.seItem.id);
+        ajax.set("postId",this.seItem.postId);
         ajax.start();
     }
 };

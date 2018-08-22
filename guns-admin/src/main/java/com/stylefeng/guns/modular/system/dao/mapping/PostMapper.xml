@@ -18,9 +18,27 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        post_id, post_title, post_short, post_story, is_show, click_count, like_count, post_uid, create_time, update_time
+        post_id postId,
+        post_title postTitle,
+        post_short postShort,
+        post_story postStory,
+        is_show ,
+        click_count clickCount,
+        like_count likeCount,
+        post_uid postUid,
+        create_time createTime,
+        update_time updateTime
     </sql>
-    
-    <select id="selectPosts" re
+
+    <!--查询列表[条件]-->
+    <select id="selectPosts" resultType="com.stylefeng.guns.core.util.PageData">
+        select
+        <include refid="Base_Column_List" />
+        from tbl_post
+        where 1=1
+        <if test="postTitle != null and postTitle != ''">
+            and (post_title like CONCAT('%',#{postTitle},'%')
+        </if>
+    </select>
 
 </mapper>

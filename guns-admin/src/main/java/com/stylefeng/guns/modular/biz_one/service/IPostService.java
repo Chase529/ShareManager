@@ -1,7 +1,10 @@
 package com.stylefeng.guns.modular.biz_one.service;
 
+import com.stylefeng.guns.core.util.PageData;
 import com.stylefeng.guns.modular.system.model.Post;
 import com.baomidou.mybatisplus.service.IService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +15,7 @@ import com.baomidou.mybatisplus.service.IService;
  * @since 2018-08-21
  */
 public interface IPostService extends IService<Post> {
+
+    List<PageData> selectPosts(String postTitle);
 
 }
