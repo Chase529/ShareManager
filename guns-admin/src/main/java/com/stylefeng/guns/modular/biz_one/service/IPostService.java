@@ -18,4 +18,6 @@ public interface IPostService extends IService<Post> {
 
     List<PageData> selectPosts(String postTitle);
 
+    PageData selectOne(String postId);
+
 }

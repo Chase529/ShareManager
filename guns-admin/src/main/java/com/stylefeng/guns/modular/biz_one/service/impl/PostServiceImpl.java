@@ -25,4 +25,9 @@ public class PostServiceImpl extends ServiceImpl<PostMapper, Post> implements IP
     public List<PageData> selectPosts(String postTitle) {
         return this.baseMapper.selectPosts(postTitle);
     }
+
+    @Override
+    public PageData selectOne(String postId) {
+        return this.baseMapper.selectById(postId);
+    }
 }

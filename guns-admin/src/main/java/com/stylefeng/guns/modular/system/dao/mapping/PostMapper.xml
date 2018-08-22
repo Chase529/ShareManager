@@ -41,4 +41,12 @@
         </if>
     </select>
 
+    <!--selectById-->
+    <select id="selectById" resultType="com.stylefeng.guns.core.util.PageData">
+        select
+        <include refid="Base_Column_List" />
+        from tbl_post
+        where post_id = #{postId}
+    </select>
+
 </mapper>

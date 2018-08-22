@@ -24,5 +24,9 @@ public interface PostMapper extends BaseMapper<Post> {
      */
     List<PageData> selectPosts(@Param("postTitle") String postTitle);
 
+    /**
+     * 根据id查询
+     */
+    PageData selectById(@Param("postId") String postId);
 
 }
