@@ -107,6 +107,9 @@ public abstract class GunsTemplateEngine extends AbstractTemplateEngine {
         if (super.contextConfig.getSqlSwitch()) {
             generateSqls();
         }
+        if(super.contextConfig.getMapperSwitch()){
+            generateMapper();
+        }
     }
 
     protected abstract void generatePageEditHtml();
@@ -122,5 +125,7 @@ public abstract class GunsTemplateEngine extends AbstractTemplateEngine {
     protected abstract void generateController();
 
     protected abstract void generateSqls();
+
+    protected abstract void generateMapper();
 
 }

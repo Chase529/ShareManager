@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stylefeng.guns.modular.system.dao.${context.entityName}Mapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.stylefeng.guns.modular.system.model.${context.entityName}">
+
+    <% for(item in table.fields!){ %>
+        <result column="${item.name}" property="${item.propertyName}" />
+    <% } %>
+
+    </resultMap>
+
+    <!-- 通用查询结果列(起别名) -->
+    <sql id="Base_Column_List">
+    <% for(item in table.fields!){ %>
+          <% if(itemLP.last != true){ %>
+          ${item.name} ${item.propertyName},
+          <% }else{ %>
+          ${item.name} ${item.propertyName}
+    <% }} %>
+    </sql>
+
+    <!--查询列表-->
+    <select id="queryList" resultType="com.stylefeng.guns.core.util.PageData">
+        select
+        <include refid="Base_Column_List" />
+        from
+        ${table.name}
+        where 1=1
+        <% for(item in table.fields!){ %>
+                <if test="${item.propertyName} != null and ${item.propertyName} != ''">
+                    and (${item.name} like CONCAT('%',#{${item.propertyName}},'%')
+                </if>
+         <% } %>
+    </select>
+
+    <!--根据id查询,结果集封装PageData-->
+    <select id="queryById" resultType="com.stylefeng.guns.core.util.PageData">
+        select
+        <include refid="Base_Column_List" />
+        from
+        ${table.name}
+        where
+        <% for(item in table.fields!){ %>
+        <% if(itemLP.first == true){ %>
+        ${item.name} = #{${item.propertyName}}
+        <% }} %>
+    </select>
+
+</mapper>

@@ -67,4 +67,13 @@ public class SimpleTemplateEngine extends GunsTemplateEngine {
         generateFile(super.getContextConfig().getTemplatePrefixPath() + "/menu_sql.sql.btl", path);
         System.out.println("生成sql成功!");
     }
+
+    @Override
+    protected void generateMapper() {
+        String path = ToolUtil.format(super.getContextConfig().getProjectPath() + super.daoConfig.getXmlPathTemplate(),
+                ToolUtil.firstLetterToUpper(super.getContextConfig().getBizEnName()));
+        generateFile(super.getContextConfig().getTemplatePrefixPath() + "/mapper.xml.btl", path);
+        System.out.println("path is->>>"+path);
+        System.out.println("生成mapper成功!");
+    }
 }

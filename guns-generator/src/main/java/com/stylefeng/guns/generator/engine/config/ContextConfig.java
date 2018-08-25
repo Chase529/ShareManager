@@ -35,6 +35,9 @@ public class ContextConfig {
     private Boolean entitySwitch = true;        //生成实体的开关
     private Boolean sqlSwitch = true;           //生成sql的开关
 
+
+    private Boolean mapperSwitch = true;        //mapper开关
+
     public void init() {
         if (entityName == null) {
             entityName = bizEnBigName;
@@ -210,5 +213,13 @@ public class ContextConfig {
 
     public void setCoreBasePackage(String coreBasePackage) {
         this.coreBasePackage = coreBasePackage;
+    }
+
+    public Boolean getMapperSwitch() {
+        return mapperSwitch;
+    }
+
+    public void setMapperSwitch(Boolean mapperSwitch) {
+        this.mapperSwitch = mapperSwitch;
     }
 }

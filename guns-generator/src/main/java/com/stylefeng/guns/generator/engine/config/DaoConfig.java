@@ -17,7 +17,8 @@ public class DaoConfig {
 
     public void init() {
         this.daoPathTemplate = "\\src\\main\\java\\" + contextConfig.getProPackage().replaceAll("\\.", "\\\\") + "\\modular\\" + contextConfig.getModuleName() + "\\dao\\{}Dao.java";
-        this.xmlPathTemplate = "\\src\\main\\java\\" + contextConfig.getProPackage().replaceAll("\\.", "\\\\") + "\\modular\\" + contextConfig.getModuleName() + "\\dao\\mapping\\{}Dao.xml";
+//        this.xmlPathTemplate = "\\src\\main\\java\\" + contextConfig.getProPackage().replaceAll("\\.", "\\\\") + "\\modular\\" + contextConfig.getModuleName() + "\\dao\\mapping\\{}Dao.xml";
+        this.xmlPathTemplate = "\\src\\main\\java\\" + contextConfig.getProPackage().replaceAll("\\.", "\\\\") + "\\modular\\system\\dao\\mapping\\{}Mapper.xml";
         this.packageName = contextConfig.getProPackage() + ".modular." + contextConfig.getModuleName() + ".dao";
     }
 
