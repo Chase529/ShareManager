@@ -1,7 +1,7 @@
 # BrightManager 1.0
 
 ## 介绍
-基于guns,加入PageData支持。
+基于开源guns,加入PageData支持。
 
 ###项目特点
 ####1. PageData
