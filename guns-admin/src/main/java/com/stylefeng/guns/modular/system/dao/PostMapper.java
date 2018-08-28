@@ -1,5 +1,6 @@
 package com.stylefeng.guns.modular.system.dao;
 
+import com.baomidou.mybatisplus.plugins.Page;
 import com.stylefeng.guns.core.datascope.DataScope;
 import com.stylefeng.guns.core.util.PageData;
 import com.stylefeng.guns.modular.system.model.Post;
@@ -22,7 +23,7 @@ public interface PostMapper extends BaseMapper<Post> {
     /**
      * 根据条件查询用户列表
      */
-    List<PageData> selectPosts(@Param("postTitle") String postTitle);
+    List<PageData> selectPosts(@Param("page") Page<Post> page, @Param("postTitle") String postTitle);
 
     /**
      * 根据id查询

@@ -1,5 +1,6 @@
 package com.stylefeng.guns.modular.biz_one.controller;
 
+import com.baomidou.mybatisplus.plugins.Page;
 import com.stylefeng.guns.core.base.controller.BaseController;
 import com.stylefeng.guns.core.util.PageData;
 import com.stylefeng.guns.core.util.UuidUtil;
@@ -65,7 +66,8 @@ public class PostController extends BaseController {
     @RequestMapping(value = "/list")
     @ResponseBody
     public Object list(String condition) {
-        List<PageData> postList = postService.selectPosts(null);
+        Page<Post> page = new Page<>();
+        List<PageData> postList = postService.selectPosts(page,null);
         List<PageData> list = (List<PageData>) new PostWarpper(postList).warp();
 
         return list;

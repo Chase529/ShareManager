@@ -1,5 +1,6 @@
 package com.stylefeng.guns.modular.biz_one.service.impl;
 
+import com.baomidou.mybatisplus.plugins.Page;
 import com.stylefeng.guns.core.util.PageData;
 import com.stylefeng.guns.modular.system.model.Post;
 import com.stylefeng.guns.modular.system.dao.PostMapper;
@@ -22,8 +23,8 @@ public class PostServiceImpl extends ServiceImpl<PostMapper, Post> implements IP
 
 
     @Override
-    public List<PageData> selectPosts(String postTitle) {
-        return this.baseMapper.selectPosts(postTitle);
+    public List<PageData> selectPosts(Page<Post> page,String postTitle) {
+        return this.baseMapper.selectPosts(page,postTitle);
     }
 
     @Override
