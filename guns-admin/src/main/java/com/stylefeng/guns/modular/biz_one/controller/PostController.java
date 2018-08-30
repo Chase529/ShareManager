@@ -15,6 +15,7 @@ import com.stylefeng.guns.core.log.LogObjectHolder;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.stylefeng.guns.modular.system.model.Post;
 import com.stylefeng.guns.modular.biz_one.service.IPostService;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -78,8 +79,9 @@ public class PostController extends BaseController {
      */
     @RequestMapping(value = "/add")
     @ResponseBody
-    public Object add(Post post) {
+    public Object add(Post post, MultipartFile[] files) {
         post.setPostId(UuidUtil.get32Uuid());
+        System.out.println(files.length);
         postService.insert(post);
         return SUCCESS_TIP;
     }

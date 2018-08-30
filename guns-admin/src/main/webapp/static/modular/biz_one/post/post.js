@@ -1,3 +1,5 @@
+
+
 /**
  * 发布动态管理管理初始化
  */
@@ -107,3 +109,5 @@ $(function () {
     table.setPaginationType("client");
     Post.table = table.init();
 });
+
+

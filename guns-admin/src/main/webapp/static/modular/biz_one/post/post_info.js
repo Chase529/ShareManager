@@ -54,7 +54,8 @@ PostInfoDlg.collectData = function() {
     .set('likeCount')
     .set('postUid')
     .set('createTime')
-    .set('updateTime');
+    .set('updateTime')
+    .set('postRes');
 }
 
 /**
@@ -97,6 +98,13 @@ PostInfoDlg.editSubmit = function() {
     ajax.start();
 }
 
-$(function() {
+$(function () {
+
+    // 初始化图片上传
+    var avatarUp = new $WebUpload("postRes");
+    avatarUp.setUploadBarId("progressBar");
+    avatarUp.init();
 
 });
+
+

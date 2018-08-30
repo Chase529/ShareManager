@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stylefeng.guns.modular.system.dao.ResourcePostMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.stylefeng.guns.modular.system.model.ResourcePost">
+
+        <result column="res_id" property="resId" />
+        <result column="res_url" property="resUrl" />
+        <result column="res_type" property="resType" />
+        <result column="res_desc" property="resDesc" />
+        <result column="relation_id" property="relationId" />
+        <result column="create_time" property="createTime" />
+
+    </resultMap>
+
+    <!-- 通用查询结果列(起别名) -->
+    <sql id="Base_Column_List">
+          res_id resId,
+          res_url resUrl,
+          res_type resType,
+          res_desc resDesc,
+          relation_id relationId,
+          create_time createTime
+    </sql>
+
+    <!--查询列表-->
+    <select id="queryList" resultType="com.stylefeng.guns.core.util.PageData">
+        select
+        <include refid="Base_Column_List" />
+        from
+        tbl_resource_post
+        where 1=1
+                <if test="resId != null and resId != ''">
+                    and (res_id like CONCAT('%',#{resId},'%')
+                </if>
+                <if test="resUrl != null and resUrl != ''">
+                    and (res_url like CONCAT('%',#{resUrl},'%')
+                </if>
+                <if test="resType != null and resType != ''">
+                    and (res_type like CONCAT('%',#{resType},'%')
+                </if>
+                <if test="resDesc != null and resDesc != ''">
+                    and (res_desc like CONCAT('%',#{resDesc},'%')
+                </if>
+                <if test="relationId != null and relationId != ''">
+                    and (relation_id like CONCAT('%',#{relationId},'%')
+                </if>
+                <if test="createTime != null and createTime != ''">
+                    and (create_time like CONCAT('%',#{createTime},'%')
+                </if>
+    </select>
+
+    <!--根据id查询,结果集封装PageData-->
+    <select id="queryById" resultType="com.stylefeng.guns.core.util.PageData">
+        select
+        <include refid="Base_Column_List" />
+        from
+        tbl_resource_post
+        where
+        res_id = #{resId}
+    </select>
+
+</mapper>
